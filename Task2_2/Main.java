@@ -3,25 +3,32 @@ public class main{
 	
 	public static void main(String args[]){
 	
-		Man man = new Man("m","Ivan","Ivanov");
-		Pacient pacient = new Pacient("m","Ivan","Ivanov",70 , 180);
-		
-
+	Pacient pacient = new Pacient("m","Ivan","Ivanov",70 , 180);
 	
-	System.out.println(man.getGender());
-	System.out.println(man.getName());
-	System.out.println(man.getSurname());
-	
-
-	System.out.println(pacient.getWeight());
-	System.out.println(pacient.getHeight());
-
-	System.out.println("U pacienta est' pasport");
 	Pasport pasport = new Pasport("Grodno",15987);
+		
+	Registry registry = new Registry();
 
-	pacient.pasport = pasport;
-	System.out.println(pacient.pasport);
+	Doctors doctors = new Doctors("terapevt");
+
+	pacient.setPasport(pasport);
+	System.out.println(pacient.getPasport());
+
+	pacient.setMedcard(registry.getMedcard());
+	System.out.println(pacient.getMedcard());
+
+	doctors.setMedcard(registry.getMedcard());
+	System.out.println(doctors.getMedcard());
 	
+	System.out.println(registry.getMedcard());
+
+	registry.setDoctors(doctors);
+	System.out.println(registry.getDoctors());
+	
+	registry.setPacient(pacient);
+	System.out.println(registry.getPacient());
+
+		
 
 }
 }
